@@ -115,6 +115,15 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   border: 1.5px solid var(--orange-mid); border-radius: 20px; padding: 8px 16px;
   font-size: 13px; color: var(--text-dark); margin-top: 14px;
 }
+.dia-extras { display:flex; flex-direction:column; gap:8px; margin-top:14px; }
+.extra-item { display:flex; align-items:baseline; gap:8px; padding:10px 16px; border-radius:10px; font-size:13.5px; line-height:1.4; }
+.extra-item .lbl { font-family:'Nunito',sans-serif; font-weight:800; flex-shrink:0; }
+.extra-item.on { background: var(--orange-light); border:1.5px solid var(--orange-mid); color: var(--text-dark); }
+.extra-item.on .lbl { color: var(--orange); }
+.extra-item.especial { background: linear-gradient(135deg,#D32F2F,#c22323); border:2px solid var(--orange); color:#fff; box-shadow:0 6px 14px rgba(211,47,47,.25); font-weight:700; }
+.extra-item.especial .lbl { color:#ffd9b8; }
+.extra-item.na { background: var(--bg); border:1.5px dashed var(--border); color: var(--text-light); font-style: italic; }
+.extra-item.na .lbl { color: var(--text-light); font-style:normal; }
 .antojito-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
 .antojito-card { background: var(--card-bg); border:1.5px solid var(--border); border-radius:12px; padding:16px; text-align:center; }
 .antojito-day { font-family:'Nunito',sans-serif; font-weight:900; font-size:15px; color:var(--navy); margin-bottom:8px; }
@@ -313,21 +322,22 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 <section id="sec-menudia" class="section">
   <div class="section-title">📋 MENÚ DEL DÍA</div>
   <div style="background:#fff;border:1.5px solid var(--orange-mid);border-radius:0 0 14px 14px;padding:18px;margin-bottom:16px;">
-    <div class="dias-nav"><button class="dia-btn active" onclick="showDia('lunes', this)">Lunes</button><button class="dia-btn" onclick="showDia('martes', this)">Martes</button><button class="dia-btn" onclick="showDia('miercoles', this)">Miércoles</button><button class="dia-btn" onclick="showDia('jueves', this)">Jueves</button><button class="dia-btn" onclick="showDia('viernes', this)">Viernes</button></div>
+    <div class="dias-nav"><button class="dia-btn active" onclick="showDia('lunes', this)">Lunes</button><button class="dia-btn" onclick="showDia('martes', this)">Martes</button><button class="dia-btn" onclick="showDia('miercoles', this)">Miércoles</button><button class="dia-btn" onclick="showDia('jueves', this)">Jueves</button><button class="dia-btn" onclick="showDia('viernes', this)">Viernes</button><button class="dia-btn" onclick="showDia('sabado', this)">Sábado</button></div>
     
 <div class="dia-content active" id="dia-lunes">
   <div class="dia-header">Lunes</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">Proteína</div>
-    <ul class="dia-items"><li>Chuleta criolla a la cebolla</li><li>Lomo jugoso en su salsa</li><li>Pechuga a la criolla</li><li>Taco oriental agridulce<span class="veg-badge">V</span></li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Chuleta de cerdo encebollada</li><li>Lomo de res jugoso en su salsa</li><li>Pechuga de pollo en salsa criolla</li><li>Taco oriental agridulce<span class="veg-badge">V</span></li></ul>
   </div>
   <div class="dia-block">
     <div class="dia-block-title">Acompañamientos</div>
     <ul class="dia-items"><li>Maduro frito dorado</li><li>Mix de vegetales de la huerta</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
   </div>
-  <div class="postre-bubble">🥟 <b>Antojitos</b> · Consulte la opción del día</div>
-  <div class="postre-bubble">🍰 <b>Postre</b> · Consulte la opción del día</div>
+  <div class="dia-extras">
+    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+  </div>
   <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
 </div>
 
@@ -335,19 +345,16 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="dia-header">Martes</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">Proteína</div>
-    <ul class="dia-items"><li>Filete al papillote de hierbas</li><li>Lasaña clásica a la boloñesa</li><li>Burrito Tex-Mex veggie con crema de aguacate<span class="veg-badge">V</span></li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Filete de pescado al papillote de hierbas</li><li>Lasaña clásica a la boloñesa</li><li>Burrito vegetariano Tex-Mex con aderezo de aguacate<span class="veg-badge">V</span></li></ul>
   </div>
   <div class="dia-block">
     <div class="dia-block-title">Acompañamientos</div>
     <ul class="dia-items"><li>Zucchini al eneldo</li><li>Elotito con margarina</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
   </div>
-  <div class="especial-block">
-    <span class="especial-badge">★ ESPECIAL</span><span class="especial-label">DEL DÍA</span>
-    <p>Tiras de pollo BBQ con papas bravas</p>
+  <div class="dia-extras">
+    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
   </div>
-  <div class="postre-bubble">🥟 <b>Antojitos</b> · Consulte la opción del día</div>
-  <div class="postre-bubble">🍰 <b>Postre</b> · Consulte la opción del día</div>
   <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
 </div>
 
@@ -355,19 +362,17 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="dia-header">Miércoles</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">Proteína</div>
+    <div class="dia-block-title">PLATO FUERTE</div>
     <ul class="dia-items"><li>Bistec a la putanesca (salsa de tomate con aceituna)</li><li>Fajitas de pollo al ajillo</li><li>Albóndigas de soya en salsa teriyaki<span class="veg-badge">V</span></li></ul>
   </div>
   <div class="dia-block">
     <div class="dia-block-title">Acompañamientos</div>
     <ul class="dia-items"><li>Papa con camisa</li><li>Ratatouille casero</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
   </div>
-  <div class="especial-block">
-    <span class="especial-badge">★ ESPECIAL</span><span class="especial-label">DEL DÍA</span>
-    <p>Burrito estilo pastor</p>
+  <div class="dia-extras">
+    <div class="extra-item especial"><span class="lbl">★ Plato Especial:</span> Chifrijo sabor tradicional</div>
+    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
   </div>
-  <div class="postre-bubble">🥟 <b>Antojitos</b> · Consulte la opción del día</div>
-  <div class="postre-bubble">🍰 <b>Postre</b> · Consulte la opción del día</div>
   <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
 </div>
 
@@ -375,19 +380,16 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="dia-header">Jueves</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">Proteína</div>
-    <ul class="dia-items"><li>Tilapia en salsa tártara</li><li>Res al romero con vegetales</li><li>Enyucado de queso con ranch</li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Filet de pescado en salsa tártara</li><li>Trozos de res al romero con vegetales</li><li>Enyucado de queso con salsa ranch</li></ul>
   </div>
   <div class="dia-block">
     <div class="dia-block-title">Acompañamientos</div>
     <ul class="dia-items"><li>Brócoli tricolor</li><li>Doraditas crujientes</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
   </div>
-  <div class="especial-block">
-    <span class="especial-badge">★ ESPECIAL</span><span class="especial-label">DEL DÍA</span>
-    <p>Chifrijo tradicional</p>
+  <div class="dia-extras">
+    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
   </div>
-  <div class="postre-bubble">🥟 <b>Antojitos</b> · Consulte la opción del día</div>
-  <div class="postre-bubble">🍰 <b>Postre</b> · Consulte la opción del día</div>
   <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
 </div>
 
@@ -395,20 +397,29 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="dia-header">Viernes</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">Proteína</div>
-    <ul class="dia-items"><li>Posta de cerdo a la criolla</li><li>Pechuga al vino blanco</li><li>Chile relleno veggie envuelto en huevo<span class="veg-badge">V</span></li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Posta de cerdo a la criolla</li><li>Pechuga de pollo en salsa blanca</li><li>Chile relleno veggie envuelto en huevo<span class="veg-badge">V</span></li></ul>
   </div>
   <div class="dia-block">
     <div class="dia-block-title">Acompañamientos</div>
     <ul class="dia-items"><li>Camote en mantequilla</li><li>Vegetales asados de temporada</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
   </div>
-  <div class="especial-block">
-    <span class="especial-badge">★ ESPECIAL</span><span class="especial-label">DEL DÍA</span>
-    <p>Tacos de birria con consomé</p>
+  <div class="dia-extras">
+    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
   </div>
-  <div class="postre-bubble">🥟 <b>Antojitos</b> · Consulte la opción del día</div>
-  <div class="postre-bubble">🍰 <b>Postre</b> · Consulte la opción del día</div>
   <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+</div>
+
+<div class="dia-content" id="dia-sabado">
+  <div class="dia-header">Sábado</div>
+  <div class="dia-sub">Menú del día</div>
+  <div class="dia-block">
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Fajitas de res encebolladas</li><li>Pechuga de pollo en salsa BBQ</li></ul>
+  </div>
+  <div class="dia-extras">
+    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+  </div>
 </div>
 
     <div class="precios-bar">
@@ -424,13 +435,34 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div style="background:#fff;border:1.5px solid var(--orange-mid);border-radius:0 0 14px 14px;padding:18px;margin-bottom:16px;">
     <div class="tabla-wrapper">
       <table class="tabla-menu">
-        <thead><tr><th>Categoría</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr></thead>
-        <tbody><tr><td>Plato Fuerte</td><td>Chuleta criolla a la cebolla</td><td>Filete al papillote de hierbas</td><td>Bistec a la putanesca (salsa de tomate con aceituna)</td><td>Tilapia en salsa tártara</td><td>Posta de cerdo a la criolla</td></tr><tr><td></td><td>Lomo jugoso en su salsa</td><td>Lasaña clásica a la boloñesa</td><td>Fajitas de pollo al ajillo</td><td>Res al romero con vegetales</td><td>Pechuga al vino blanco</td></tr><tr><td></td><td>Pechuga a la criolla</td><td>Burrito Tex-Mex veggie con crema de aguacate<span class="veg-badge">V</span></td><td>Albóndigas de soya en salsa teriyaki<span class="veg-badge">V</span></td><td>Enyucado de queso con ranch<span class="veg-badge">V</span></td><td>Chile relleno veggie envuelto en huevo<span class="veg-badge">V</span></td></tr><tr class="fila-especial"><td></td><td>Taco oriental agridulce<span class="veg-badge">V</span></td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Tiras de pollo BBQ con papas bravas</td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Burrito estilo pastor</td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Chifrijo tradicional</td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Tacos de birria con consomé</td></tr><tr><td>Guarnición</td><td>Maduro frito dorado</td><td>Zucchini al eneldo</td><td>Papa con camisa</td><td>Brócoli tricolor</td><td>Camote en mantequilla</td></tr><tr><td></td><td>Mix de vegetales de la huerta</td><td>Elotito con margarina</td><td>Ratatouille casero</td><td>Doraditas crujientes</td><td>Vegetales asados de temporada</td></tr><tr><td>Componente</td><td>Arroz blanco</td><td>Arroz blanco</td><td>Arroz blanco</td><td>Arroz blanco</td><td>Arroz blanco</td></tr><tr><td></td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>Frijolitos caseros</td></tr><tr><td></td><td>-</td><td>Arroz con leche y dulce de leche</td><td>-</td><td>Papa horneada estilo steakhouse con natilla</td><td>-</td></tr><tr><td>Frescos</td><td>Horchata casera</td><td>Batido de banano y fresa</td><td>Fresco de naranja y zanahoria</td><td>Fresco de sandía y menta</td><td>Ponche de frutos rojos</td></tr><tr><td></td><td>Fresco de maracuyá</td><td>Fresco de carambola</td><td>Limonada con hierbabuena</td><td>Fresco de avena</td><td>Fresco de maracuyá</td></tr><tr><td></td><td>Fresco de toronja</td><td>Fresco natural de piña</td><td>Fresco tutti frutti</td><td>Fresco natural de mango</td><td>Té blanco con aloe</td></tr><tr><td>Ensaladas</td><td>Garden Salad con chile dulce</td><td>Pea Salad con arvejas</td><td>Lollo Rosso Salad con chile y cebolla</td><td>Heart of Palm Salad con palmito</td><td>Boston Bibb & Spinach Salad</td></tr><tr><td></td><td>Ensalada criolla</td><td>Slaw de repollo y zanahoria</td><td>Asian Sprout Salad</td><td>Red & White Slaw</td><td>Coleslaw</td></tr><tr><td></td><td>Tomate fresco en rodajas</td><td>Tomate con cebollino</td><td>Tomate fresco en rodajas</td><td>Tomate fresco en rodajas</td><td>Tomate con perejil</td></tr><tr><td></td><td>Zanahoria rallada con palmito</td><td>Cebolla morada</td><td>Rábano con chile dulce</td><td>Zanahoria rallada con piña</td><td>Hongos salteados</td></tr><tr><td></td><td>Huevo duro en rodajas</td><td>Crotones tostados</td><td>Huevo duro en rodajas</td><td>Remolacha en cubitos</td><td>Ensalada de frijoles rojos</td></tr><tr><td>Aderezo</td><td>Aderezo francés de la casa</td><td>Aderezo César</td><td>Aderezo salsa rosada</td><td>Vinagreta de cebolla y perejil</td><td>Vinagreta de mora y culantro</td></tr></tbody>
+        <thead><tr><th>Categoría</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th></tr></thead>
+        <tbody>
+        <tr><td>Plato Fuerte</td><td>Chuleta de cerdo encebollada</td><td>Filete de pescado al papillote de hierbas</td><td>Bistec a la putanesca (salsa de tomate con aceituna)</td><td>Filet de pescado en salsa tártara</td><td>Posta de cerdo a la criolla</td><td>Fajitas de res encebolladas</td></tr>
+        <tr><td></td><td>Lomo de res jugoso en su salsa</td><td>Lasaña clásica a la boloñesa</td><td>Fajitas de pollo al ajillo</td><td>Trozos de res al romero con vegetales</td><td>Pechuga de pollo en salsa blanca</td><td>Pechuga de pollo en salsa BBQ</td></tr>
+        <tr><td></td><td>Pechuga de pollo en salsa criolla</td><td>Burrito vegetariano Tex-Mex con aderezo de aguacate<span class="veg-badge">V</span></td><td>Albóndigas de soya en salsa teriyaki<span class="veg-badge">V</span></td><td>Enyucado de queso con salsa ranch</td><td>Chile relleno veggie envuelto en huevo<span class="veg-badge">V</span></td><td>-</td></tr>
+        <tr><td></td><td>Taco oriental agridulce<span class="veg-badge">V</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+        <tr class="fila-especial"><td>Comida Rápida / Especial del Día</td><td>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Chifrijo sabor tradicional<br>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td></tr>
+        <tr><td>Guarnición</td><td>Maduro frito dorado</td><td>Zucchini al eneldo</td><td>Papa con camisa</td><td>Brócoli tricolor</td><td>Camote en mantequilla</td><td>-</td></tr>
+        <tr><td></td><td>Mix de vegetales de la huerta</td><td>Elotito con margarina</td><td>Ratatouille casero</td><td>Doraditas crujientes</td><td>Vegetales asados de temporada</td><td>-</td></tr>
+        <tr><td>Componente</td><td>Arroz blanco</td><td>Arroz blanco</td><td>Arroz blanco</td><td>Arroz blanco</td><td>Arroz blanco</td><td>-</td></tr>
+        <tr><td></td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>Frijolitos caseros</td><td>-</td></tr>
+        <tr><td></td><td>-</td><td>Arroz con leche y dulce de leche</td><td>-</td><td>Papa horneada estilo steakhouse con natilla</td><td>-</td><td>-</td></tr>
+        <tr><td>Frescos</td><td>Horchata casera</td><td>Batido de banano y fresa</td><td>Fresco de naranja y zanahoria</td><td>Fresco de sandía y menta</td><td>Ponche de frutos rojos</td><td>-</td></tr>
+        <tr><td></td><td>Fresco de maracuyá</td><td>Fresco de carambola</td><td>Limonada con hierbabuena</td><td>Fresco de avena</td><td>Fresco de maracuyá</td><td>-</td></tr>
+        <tr><td></td><td>Fresco de toronja</td><td>Fresco natural de piña</td><td>Fresco tutti frutti</td><td>Fresco natural de mango</td><td>Té blanco con aloe</td><td>-</td></tr>
+        <tr><td>Ensaladas</td><td>Garden Salad con chile dulce</td><td>Pea Salad con arvejas</td><td>Lollo Rosso Salad con chile y cebolla</td><td>Heart of Palm Salad con palmito</td><td>Boston Bibb &amp; Spinach Salad</td><td>-</td></tr>
+        <tr><td></td><td>Ensalada criolla</td><td>Slaw de repollo y zanahoria</td><td>Asian Sprout Salad</td><td>Red &amp; White Slaw</td><td>Coleslaw</td><td>-</td></tr>
+        <tr><td></td><td>Tomate fresco en rodajas</td><td>Tomate con cebollino</td><td>Tomate fresco en rodajas</td><td>Tomate fresco en rodajas</td><td>Tomate con perejil</td><td>-</td></tr>
+        <tr><td></td><td>Zanahoria rallada con palmito</td><td>Cebolla morada</td><td>Rábano con chile dulce</td><td>Zanahoria rallada con piña</td><td>Hongos salteados</td><td>-</td></tr>
+        <tr><td></td><td>Huevo duro en rodajas</td><td>Crotones tostados</td><td>Huevo duro en rodajas</td><td>Remolacha en cubitos</td><td>Ensalada de frijoles rojos</td><td>-</td></tr>
+        <tr><td>Aderezo</td><td>Aderezo francés de la casa</td><td>Aderezo César</td><td>Aderezo salsa rosada</td><td>Vinagreta de cebolla y perejil</td><td>Vinagreta de mora y culantro</td><td>-</td></tr>
+        </tbody>
       </table>
     </div>
-    <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+    <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana &nbsp;·&nbsp; "-" indica que no aplica ese día</div>
   </div>
 </section>
+
 
 
 
