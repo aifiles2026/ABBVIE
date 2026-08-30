@@ -10,7 +10,7 @@
   --navy: #1B143D;
   --navy-dark: #120D2A;
   --orange: #FF7708;
-  --orange-light: #FFF1E1;
+  --orange-light: #FFCC99;
   --orange-mid: #FFD3A3;
   --text-dark: #1a1a2e;
   --text-mid: #4a4a5e;
@@ -47,6 +47,8 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 }
 .nav-tab:hover { color: var(--navy); }
 .nav-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+.nav-tab-external { text-decoration:none; display:inline-flex; align-items:center; color: var(--navy) !important; }
+.nav-tab-external:hover { color: var(--orange) !important; }
 
 .main { padding: 28px 24px 50px; max-width: 980px; margin: 0 auto; }
 .section { display: none; }
@@ -71,11 +73,13 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 .combo-desc { font-size: 13px; color: var(--text-mid); line-height: 1.55; }
 .combo-price-col { display: flex; flex-direction: column; gap: 12px; }
 .price-box {
-  background: var(--orange-light); border: 1.5px solid var(--orange-mid); border-radius: 10px;
+  background: var(--orange); border: 1.5px solid var(--orange); border-radius: 10px;
   padding: 10px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 3px; min-width: 130px;
 }
-.price-num { font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 800; color: var(--navy); white-space: nowrap; }
+.price-box .price-num, .price-box .price-emp { color: #fff; }
+.price-box .price-cap { color: rgba(255,255,255,.85); }
+.price-num { font-family: 'Nunito', sans-serif; font-size: 27px; font-weight: 800; color: var(--navy); white-space: nowrap; }
 .price-emp { font-family: 'Nunito', sans-serif; font-size: 27px; font-weight: 900; color: var(--navy); white-space: nowrap; }
 .price-cap { font-size: 10px; color: var(--text-light); }
 
@@ -97,6 +101,17 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   padding: 6px 14px; border-radius: 7px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.3px;
 }
 .dia-items { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.combo-note { display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:13px; color:var(--text-dark); background:var(--orange-light); border:1.5px dashed var(--orange-mid); border-radius:10px; padding:10px 14px; margin-top:10px; }
+.combo-note b { color:var(--navy); }
+.combo-note .combo-link { background:var(--orange); color:#fff; font-weight:800; text-decoration:none; padding:4px 12px; border-radius:20px; font-size:12.5px; cursor:pointer; border:none; }
+.combo-note .combo-link:hover { background:#e56a00; }
+.dia-almuerzo-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:13px; letter-spacing:.04em; color:#fff; background:var(--navy); display:inline-flex; align-items:center; gap:8px; padding:5px 8px 5px 14px; border-radius:8px; margin-bottom:10px; }
+.title-combo-link { background:var(--orange); color:#fff; font-weight:800; text-decoration:none; padding:3px 10px; border-radius:14px; font-size:11.5px; cursor:pointer; border:none; letter-spacing:0; }
+.title-combo-link:hover { background:#e56a00; }
+.dia-items-desayuno { display:grid; grid-template-columns: 1fr 1fr; gap:6px 14px; }
+.dia-items-desayuno li { font-size:13px; padding:6px 10px; background: #E8F5D0; border:1px solid #B8E08A; border-radius:8px; }
+@media (max-width:520px){ .dia-items-desayuno { grid-template-columns: 1fr; } }
+.dia-desayuno-line { font-size: 13.5px; color: var(--text-dark); background: var(--orange-light); border:1.5px solid var(--orange-mid); border-radius:10px; padding:9px 14px; }
 .dia-items li { font-size: 14px; color: var(--text-mid); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
 .dia-items li::before { content: '•'; color: var(--orange); font-size: 18px; line-height: 1.1; flex-shrink: 0; }
 
@@ -142,11 +157,11 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 
 .veg-badge {
   display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px;
-  background: #2E7D32; color: #fff; border-radius: 50%; font-size: 10px; font-weight: 900;
-  margin-left: 6px; flex-shrink: 0; border: 1.5px solid #fff; box-shadow: 0 0 0 1px #2E7D32;
+  background: #fff; color: #2E7D32; border-radius: 50%; font-size: 11px; font-weight: 900;
+  margin-left: 6px; flex-shrink: 0; border: 1.5px solid #2E7D32; box-shadow: 0 0 0 1px #fff;
 }
 .veg-legend { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-light); font-style: italic; margin-top: 10px; }
-.especial-cell .veg-badge, .fila-especial .veg-badge { box-shadow: 0 0 0 1px #fff; }
+.especial-cell .veg-badge, .fila-especial .veg-badge { box-shadow: 0 0 0 1px #2E7D32; }
 
 .subsidio-wrapper { background: var(--card-bg); border: 1.5px solid var(--orange-mid); border-radius: 0 0 14px 14px; padding: 24px; margin-bottom: 28px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items: start; }
 .subsidio-wrapper img { width: 100%; border-radius: 14px; box-shadow: 0 6px 20px rgba(27,20,61,.15); }
@@ -174,6 +189,9 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 .fila-especial td:first-child { background: var(--orange); color: #fff; }
 .fila-especial td.especial-cell { background: linear-gradient(135deg,#D32F2F,#c22323); color:#fff; font-weight: 800; }
 .especial-tag { display:block; color: var(--orange); background:#fff; font-size: 9.5px; font-weight: 900; letter-spacing:.04em; padding: 1px 6px; border-radius: 5px; margin-bottom: 4px; width: fit-content; }
+.rapida-tag { display:block; color: #fff; background: var(--orange); font-size: 9.5px; font-weight: 900; letter-spacing:.04em; padding: 2px 7px; border-radius: 5px; margin-bottom: 4px; width: fit-content; }
+.especial-note { font-size: 12.5px; color: var(--text-mid); background: var(--orange-light); border: 1px solid var(--orange-mid); border-radius: 8px; padding: 8px 14px; margin-top: 10px; }
+.especial-note b { color: var(--navy); }
 
 .eventos-wrapper { background: var(--card-bg); border: 1.5px solid var(--orange-mid); border-radius: 0 0 14px 14px; padding: 18px; margin-bottom: 28px; }
 .eventos-intro { font-size: 13px; color: var(--text-mid); line-height: 1.55; margin-bottom: 16px; }
@@ -222,7 +240,7 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   </div>
 </header>
 
-<nav class="nav-tabs"><button class="nav-tab active" onclick="showSection('desayuno', this)">☀️ Desayuno</button><button class="nav-tab" onclick="showSection('almuerzo', this)">🍽️ Almuerzo</button><button class="nav-tab" onclick="showSection('menudia', this)">📋 Menú del Día</button><button class="nav-tab" onclick="showSection('semana', this)">📅 Menú Semana</button><button class="nav-tab" onclick="showSection('eventos', this)">🎉 Eventos</button></nav>
+<nav class="nav-tabs"><button class="nav-tab" onclick="showSection('menudia', this)">📋 Menú del Día</button><button class="nav-tab active" onclick="showSection('desayuno', this)">☀️ Desayuno</button><button class="nav-tab" onclick="showSection('almuerzo', this)">🍽️ Almuerzo</button><button class="nav-tab" onclick="showSection('merienda', this)">🍪 Merienda</button><button class="nav-tab" onclick="showSection('semana', this)">📅 Menú Semana</button><button class="nav-tab" onclick="showSection('eventos', this)">🎉 Eventos</button><a class="nav-tab nav-tab-external" href="https://forms.cloud.microsoft/r/ahvwJ4S6QK" target="_blank" rel="noopener">📬 Buzón</a></nav>
 
 <main class="main">
 
@@ -235,13 +253,6 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 <div class="combo-price-col">
   <div class="price-box"><span class="price-num">₡1 600</span><span class="price-cap">Precio con IVA</span></div>
   <div class="price-box" style="border-color:var(--orange);"><span class="price-emp">₡720</span><span class="price-cap">Precio Empleado con IVA</span></div>
-</div><div class="combo-card">
-  <div class="combo-name">¡Armá tu combo!</div>
-  <div class="combo-desc">Dos opciones a elegir entre: huevo frito, huevo picado, queso, natilla, maduro o embutido (excepto chorizo)</div>
-</div>
-<div class="combo-price-col">
-  <div class="price-box"><span class="price-num">₡950</span><span class="price-cap">Precio con IVA</span></div>
-  <div class="price-box" style="border-color:var(--orange);"><span class="price-emp">₡475</span><span class="price-cap">Precio Empleado con IVA</span></div>
 </div><div class="combo-card">
   <div class="combo-name">Combo Low Carb</div>
   <div class="combo-desc">Omelette del día con 2 huevos + aguacate + ensalada verde o tajada de pan + bebida o fruta</div>
@@ -279,7 +290,7 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="price-box" style="border-color:var(--orange);"><span class="price-emp">₡500</span><span class="price-cap">Precio Empleado con IVA</span></div>
 </div></div>
   <div class="section-title" style="border-radius:12px 12px 0 0;">🍞 LISTA DE PRECIOS INDIVIDUALES</div>
-  <div class="cards-wrapper"><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Gallo Pinto</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡250</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Huevos Revueltos</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡400</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡200</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Huevos Fritos</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡700</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡350</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Huevos Rancheros</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡850</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡425</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Carne en salsa</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 400</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡700</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Queso tierno</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡225</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Queso frito</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡300</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Prensadas con queso</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡650</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡325</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Embutido</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡250</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Chorizo</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡650</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡325</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Tocineta</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡650</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡325</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Plátano maduro</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡400</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡200</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Natilla</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡350</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡175</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Hash Brown</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡550</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡275</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Empanada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 000</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡500</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Empanada arreglada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 300</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡650</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Tomate</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡200</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡100</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Pupusa con ensalada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡750</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Tostada de pan</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡250</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡125</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Merienda saludable</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡750</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Porción fruta</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡375</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡187,50</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Bebida natural</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡225</span></div></div></div>
+  <div class="cards-wrapper"><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Gallo Pinto</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡250</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Huevos Revueltos</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡400</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡200</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Huevos Fritos</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡700</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡350</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Huevos Rancheros</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡850</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡425</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Carne en salsa</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 400</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡700</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Queso tierno</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡225</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Queso frito</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡300</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Prensadas con queso</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡650</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡325</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Embutido</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡250</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Chorizo</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡650</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡325</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Tocineta</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡650</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡325</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Plátano maduro</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡400</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡200</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Natilla</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡350</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡175</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Hash Brown</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡550</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡275</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Empanada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 000</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡500</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Empanada arreglada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 300</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡650</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Tomate</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡200</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡100</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Pupusa con ensalada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡750</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Tostada de pan</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡250</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡125</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Merienda saludable</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡750</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Porción fruta</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡375</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡187,50</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Bebida natural</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡225</span></div></div></div>
 </section>
 
 
@@ -315,7 +326,21 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="price-box" style="border-color:var(--orange);"><span class="price-emp">₡875</span><span class="price-cap">Precio Empleado con IVA</span></div>
 </div></div>
   <div class="section-title" style="border-radius:12px 12px 0 0;">🥗 LISTA DE PRECIOS INDIVIDUALES</div>
-  <div class="cards-wrapper"><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Plato Principal (carne, pollo, cerdo o pescado)</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡375</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Arroz</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡112,50</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Frijolitos Caseros</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡350</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡87,50</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Acompañamiento harinoso</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Acompañamiento vegetal</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Pasta</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡375</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Ensalada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Ensalada harinosa</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Postre de línea</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Postre empacado / tres leches / flan</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡2 000</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">Variable</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Fresco natural</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:13px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡112,50</span></div></div></div>
+  <div class="cards-wrapper"><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Plato Principal (carne, pollo, cerdo o pescado)</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡375</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Arroz</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡112,50</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Frijolitos Caseros</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡350</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡87,50</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Acompañamiento harinoso</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Acompañamiento vegetal</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Pasta</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡1 500</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡375</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Ensalada</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Ensalada harinosa</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Postre de línea</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡600</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡150</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Postre empacado / tres leches / flan</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡2 000</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">Variable</span></div></div><div class="combo-card" style="padding:10px 16px;"><div class="combo-name" style="font-size:13.5px;">Fresco natural</div></div><div class="combo-price-col" style="flex-direction:row;gap:8px;"><div class="price-box" style="min-width:90px;padding:6px 10px;"><span class="price-num" style="font-size:17px;">₡450</span></div><div class="price-box" style="min-width:90px;padding:6px 10px;border-color:var(--orange);"><span class="price-emp" style="font-size:17px;">₡112,50</span></div></div></div>
+</section>
+
+
+
+<section id="sec-merienda" class="section">
+  <div class="section-title">🍪 MERIENDA — COMBOS <span class="section-subtitle">Precios con IVA</span></div>
+  <div class="cards-wrapper"><div class="combo-card">
+  <div class="combo-name">Combo Merienda</div>
+  <div class="combo-desc">Dos (2) piezas de repostería (dulce o salada) o un (1) sándwich + fresco o fruta</div>
+</div>
+<div class="combo-price-col">
+  <div class="price-box"><span class="price-num">₡1 850</span><span class="price-cap">Precio con IVA</span></div>
+  <div class="price-box" style="border-color:var(--orange);"><span class="price-emp">₡925</span><span class="price-cap">Precio Empleado con IVA</span></div>
+</div></div>
 </section>
 
 
@@ -328,101 +353,111 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
   <div class="dia-header">Lunes</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">PLATO FUERTE</div>
-    <ul class="dia-items"><li>Chuleta de cerdo encebollada</li><li>Lomo de res jugoso en su salsa</li><li>Pechuga de pollo en salsa criolla</li><li>Taco oriental agridulce<span class="veg-badge">V</span></li></ul>
+    <div class="dia-almuerzo-title">DESAYUNO <button class="title-combo-link" onclick="goToSection('desayuno')">Combos · haz clic aquí</button></div>
+    <ul class="dia-items dia-items-desayuno"><li>Gallo pinto</li><li>Plátano maduro</li><li>Huevo frito</li><li>Huevo picado</li><li>Salsa de tomate ranchera</li><li>Omelette con ingredientes variados</li><li>Taco de carne mechada</li><li>Salchichón con chile a la plancha</li><li>Salchicha con chile y cebolla</li><li>Plátano maduro entero con queso</li><li>Empanada de carne mechada</li><li>Pan rodaja natural</li><li>Sándwich variados</li><li>Barra de frutas</li><li>Opciones de repostería dulce / salada</li></ul>
   </div>
+  <div class="dia-almuerzo-title">ALMUERZO <button class="title-combo-link" onclick="goToSection('almuerzo')">Combos · haz clic aquí</button></div>
   <div class="dia-block">
-    <div class="dia-block-title">Acompañamientos</div>
-    <ul class="dia-items"><li>Maduro frito dorado</li><li>Mix de vegetales de la huerta</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Filete de corvineta al ajillo (horno)</li><li>Torta de carne de res en salsa oscura</li><li>Chile relleno de arroz y hongos<span class="veg-badge">🍃</span></li></ul>
   </div>
   <div class="dia-extras">
-    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+    <div class="extra-item especial"><span class="lbl">🍔 Comida Rápida:</span> Bonneles de pollo, salsa mostaza y miel</div>
   </div>
-  <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
 </div>
 
 <div class="dia-content" id="dia-martes">
   <div class="dia-header">Martes</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">PLATO FUERTE</div>
-    <ul class="dia-items"><li>Filete de pescado al papillote de hierbas</li><li>Lasaña clásica a la boloñesa</li><li>Burrito vegetariano Tex-Mex con aderezo de aguacate<span class="veg-badge">V</span></li></ul>
+    <div class="dia-almuerzo-title">DESAYUNO <button class="title-combo-link" onclick="goToSection('desayuno')">Combos · haz clic aquí</button></div>
+    <ul class="dia-items dia-items-desayuno"><li>Gallo pinto</li><li>Plátano maduro</li><li>Huevo frito</li><li>Huevo picado</li><li>Salsa de tomate ranchera</li><li>Omelette con ingredientes variados</li><li>Tostadas francesas integrales</li><li>Queso turrialba a la plancha</li><li>Chorizo mexicano</li><li>Salchichón con pico de gallo</li><li>Enyucados de jamón</li><li>Burrito de carne mechada con frijol</li><li>Empanada de pollo</li><li>Sándwich variados</li><li>Barra de frutas</li><li>Opciones de repostería dulce / salada</li></ul>
   </div>
+  <div class="dia-almuerzo-title">ALMUERZO <button class="title-combo-link" onclick="goToSection('almuerzo')">Combos · haz clic aquí</button></div>
   <div class="dia-block">
-    <div class="dia-block-title">Acompañamientos</div>
-    <ul class="dia-items"><li>Zucchini al eneldo</li><li>Elotito con margarina</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Pollo en salsa de culantro (pechuga deshuesada)</li><li>Enyucados de carne mechada con aderezo jalapeño</li><li>Croqueta de plátano maduro con frijol, salsa caribeña<span class="veg-badge">🍃</span></li></ul>
   </div>
   <div class="dia-extras">
-    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+    <div class="extra-item especial"><span class="lbl">🍔 Comida Rápida:</span> Taco con posta de cerdo al pastor (3 un.)</div>
   </div>
-  <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
 </div>
 
 <div class="dia-content" id="dia-miercoles">
   <div class="dia-header">Miércoles</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">PLATO FUERTE</div>
-    <ul class="dia-items"><li>Bistec a la putanesca (salsa de tomate con aceituna)</li><li>Fajitas de pollo al ajillo</li><li>Albóndigas de soya en salsa teriyaki<span class="veg-badge">V</span></li></ul>
+    <div class="dia-almuerzo-title">DESAYUNO <button class="title-combo-link" onclick="goToSection('desayuno')">Combos · haz clic aquí</button></div>
+    <ul class="dia-items dia-items-desayuno"><li>Gallo pinto</li><li>Plátano maduro</li><li>Huevo frito</li><li>Huevo picado</li><li>Salsa de tomate ranchera</li><li>Omelette con ingredientes variados</li><li>Tortilla palmeada con mozzarella</li><li>Salchichón frito</li><li>Tocineta al horno</li><li>Tostadas baguette con jalea</li><li>Empanada de queso</li><li>Pan rodaja natural</li><li>Sándwich variados</li><li>Barra de frutas</li><li>Opciones de repostería dulce / salada</li></ul>
   </div>
+  <div class="dia-almuerzo-title">ALMUERZO <button class="title-combo-link" onclick="goToSection('almuerzo')">Combos · haz clic aquí</button></div>
   <div class="dia-block">
-    <div class="dia-block-title">Acompañamientos</div>
-    <ul class="dia-items"><li>Papa con camisa</li><li>Ratatouille casero</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Bistec de res con chimichurri argentino</li><li>Dedos de pescado (corvineta) con salsa tártara</li><li>Chop suey vegano<span class="veg-badge">🍃</span></li></ul>
   </div>
   <div class="dia-extras">
-    <div class="extra-item especial"><span class="lbl">★ Plato Especial:</span> Chifrijo sabor tradicional</div>
-    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+    <div class="extra-item especial"><span class="lbl">★ Plato Especial:</span> Sopa azteca</div>
   </div>
-  <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
 </div>
 
 <div class="dia-content" id="dia-jueves">
   <div class="dia-header">Jueves</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">PLATO FUERTE</div>
-    <ul class="dia-items"><li>Filet de pescado en salsa tártara</li><li>Trozos de res al romero con vegetales</li><li>Enyucado de queso con salsa ranch</li></ul>
+    <div class="dia-almuerzo-title">DESAYUNO <button class="title-combo-link" onclick="goToSection('desayuno')">Combos · haz clic aquí</button></div>
+    <ul class="dia-items dia-items-desayuno"><li>Gallo pinto frijol rojo</li><li>Plátano maduro</li><li>Huevo frito</li><li>Huevo picado</li><li>Salsa de tomate ranchera</li><li>Omelette con ingredientes variados</li><li>Tostadas francesas</li><li>Palitos de queso empanizados</li><li>Chorizo al horno</li><li>Salchichón a la plancha</li><li>Tostadas pizza</li><li>Hash brown</li><li>Empanada de frijol</li><li>Sándwich variados</li><li>Barra de frutas</li><li>Opciones de repostería dulce / salada</li></ul>
   </div>
+  <div class="dia-almuerzo-title">ALMUERZO <button class="title-combo-link" onclick="goToSection('almuerzo')">Combos · haz clic aquí</button></div>
   <div class="dia-block">
-    <div class="dia-block-title">Acompañamientos</div>
-    <ul class="dia-items"><li>Brócoli tricolor</li><li>Doraditas crujientes</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Pollo en salsa chipotle</li><li>Posta de cerdo a la naranja</li><li>Guiso de garbanzos con vegetales<span class="veg-badge">🍃</span></li></ul>
   </div>
   <div class="dia-extras">
-    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+    <div class="extra-item especial"><span class="lbl">🍔 Comida Rápida:</span> Nachos de carne mechada</div>
   </div>
-  <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
 </div>
 
 <div class="dia-content" id="dia-viernes">
   <div class="dia-header">Viernes</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
-    <div class="dia-block-title">PLATO FUERTE</div>
-    <ul class="dia-items"><li>Posta de cerdo a la criolla</li><li>Pechuga de pollo en salsa blanca</li><li>Chile relleno veggie envuelto en huevo<span class="veg-badge">V</span></li></ul>
+    <div class="dia-almuerzo-title">DESAYUNO <button class="title-combo-link" onclick="goToSection('desayuno')">Combos · haz clic aquí</button></div>
+    <ul class="dia-items dia-items-desayuno"><li>Gallo pinto</li><li>Plátano maduro</li><li>Huevo frito</li><li>Huevo picado</li><li>Omelette con salchicha y hongos</li><li>Omelette con ingredientes variados</li><li>Pancake sencillo</li><li>Canelones con queso y jamón envuelto en huevo</li><li>Salchichón con pico de gallo</li><li>Salchicha en salsa BBQ</li><li>Tequeños queso colegiales</li><li>Torta de plátano con miel</li><li>Empanada carne mechada</li><li>Sándwich variados</li><li>Barra de frutas</li><li>Opciones de repostería dulce / salada</li></ul>
   </div>
+  <div class="dia-almuerzo-title">ALMUERZO <button class="title-combo-link" onclick="goToSection('almuerzo')">Combos · haz clic aquí</button></div>
   <div class="dia-block">
-    <div class="dia-block-title">Acompañamientos</div>
-    <ul class="dia-items"><li>Camote en mantequilla</li><li>Vegetales asados de temporada</li><li>Arroz blanco</li><li>Frijolitos caseros</li></ul>
+    <div class="dia-block-title">PLATO FUERTE</div>
+    <ul class="dia-items"><li>Cacho de lomo en su salsa</li><li>Fajitas de pollo a la plancha</li><li>Tomate relleno con frijol y vegetales<span class="veg-badge">🍃</span></li></ul>
   </div>
   <div class="dia-extras">
-    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+    <div class="extra-item especial"><span class="lbl">🍔 Comida Rápida:</span> Hamburguesa artesanal de pollo con guacamole</div>
   </div>
-  <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana</div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
 </div>
 
 <div class="dia-content" id="dia-sabado">
   <div class="dia-header">Sábado</div>
   <div class="dia-sub">Menú del día</div>
   <div class="dia-block">
+    <div class="dia-almuerzo-title">DESAYUNO <button class="title-combo-link" onclick="goToSection('desayuno')">Combos · haz clic aquí</button></div>
+    <ul class="dia-items dia-items-desayuno"><li>Gallo pinto</li><li>Plátano maduro</li><li>Huevo frito</li><li>Huevo picado</li><li>Salsa de tomate ranchera</li><li>Omelette con ingredientes variados</li><li>Burrito de jamón y huevo</li><li>Salchichón frito</li><li>Tortas de yuca desayuno</li><li>Empanada queso</li><li>Empanada queso</li><li>Sándwich variados</li><li>Barra de frutas</li><li>Opciones de repostería dulce / salada</li></ul>
+  </div>
+  <div class="dia-almuerzo-title">ALMUERZO <button class="title-combo-link" onclick="goToSection('almuerzo')">Combos · haz clic aquí</button></div>
+  <div class="dia-block">
     <div class="dia-block-title">PLATO FUERTE</div>
-    <ul class="dia-items"><li>Fajitas de res encebolladas</li><li>Pechuga de pollo en salsa BBQ</li></ul>
+    <ul class="dia-items"><li>Pollo en salsa provenzal (pechuga deshuesada)</li><li>Trozos de cerdo con chile y cebolla</li><li>Spaghetti napolitano<span class="veg-badge">🍃</span></li></ul>
   </div>
   <div class="dia-extras">
-    <div class="extra-item on"><span class="lbl">🍔 Comida Rápida:</span> Consulte la opción del día</div>
+    <div class="extra-item especial"><span class="lbl">🍔 Comida Rápida:</span> Twister de pollo con aderezo ranch especial</div>
   </div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
 </div>
 
-    <div class="precios-bar">
+<div class="precios-bar">
       <div class="precios-bar-title">COMBOS ALMUERZO · PRECIO EMPLEADO</div>
       <div class="precios-grid"><div class="precio-item"><span class="precio-label">Ejecutivo</span><span class="precio-val">₡687,50</span></div><div class="precio-item"><span class="precio-label">¡Armá tu combo!</span><span class="precio-val">₡537,50</span></div><div class="precio-item"><span class="precio-label">Especial</span><span class="precio-val">₡1 225</span></div><div class="precio-item"><span class="precio-label">Comida Rápida</span><span class="precio-val">₡875</span></div></div>
     </div>
@@ -437,15 +472,15 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
       <table class="tabla-menu">
         <thead><tr><th>Categoría</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th></tr></thead>
         <tbody>
-        <tr><td>Plato Fuerte</td><td>Chuleta de cerdo encebollada</td><td>Filete de pescado al papillote de hierbas</td><td>Bistec a la putanesca (salsa de tomate con aceituna)</td><td>Filet de pescado en salsa tártara</td><td>Posta de cerdo a la criolla</td><td>Fajitas de res encebolladas</td></tr>
-        <tr><td></td><td>Lomo de res jugoso en su salsa</td><td>Lasaña clásica a la boloñesa</td><td>Fajitas de pollo al ajillo</td><td>Trozos de res al romero con vegetales</td><td>Pechuga de pollo en salsa blanca</td><td>Pechuga de pollo en salsa BBQ</td></tr>
-        <tr><td></td><td>Pechuga de pollo en salsa criolla</td><td>Burrito vegetariano Tex-Mex con aderezo de aguacate<span class="veg-badge">V</span></td><td>Albóndigas de soya en salsa teriyaki<span class="veg-badge">V</span></td><td>Enyucado de queso con salsa ranch</td><td>Chile relleno veggie envuelto en huevo<span class="veg-badge">V</span></td><td>-</td></tr>
-        <tr><td></td><td>Taco oriental agridulce<span class="veg-badge">V</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-        <tr class="fila-especial"><td>Comida Rápida / Especial del Día</td><td>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Chifrijo sabor tradicional<br>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td><td>Comida Rápida: Consulte la opción del día</td></tr>
+        <tr><td>Plato Fuerte</td><td>Filete de corvineta al ajillo (horno)</td><td>Pollo en salsa de culantro (pechuga deshuesada)</td><td>Bistec de res con chimichurri argentino</td><td>Pollo en salsa chipotle</td><td>Cacho de lomo en su salsa</td><td>Pollo en salsa provenzal (pechuga deshuesada)</td></tr>
+        <tr><td></td><td>Torta de carne de res en salsa oscura</td><td>Enyucados de carne mechada con aderezo jalapeño</td><td>Dedos de pescado (corvineta) con salsa tártara</td><td>Posta de cerdo a la naranja</td><td>Fajitas de pollo a la plancha</td><td>Trozos de cerdo con chile y cebolla</td></tr>
+        <tr><td></td><td>Chile relleno de arroz y hongos<span class="veg-badge">🍃</span></td><td>Croqueta de plátano maduro con frijol, salsa caribeña<span class="veg-badge">🍃</span></td><td>Chop suey vegano<span class="veg-badge">🍃</span></td><td>Guiso de garbanzos con vegetales<span class="veg-badge">🍃</span></td><td>Tomate relleno con frijol y vegetales<span class="veg-badge">🍃</span></td><td>Spaghetti napolitano<span class="veg-badge">🍃</span></td></tr>
+        <tr class="fila-especial"><td>Comida Rápida / Especial del Día</td><td><span class="rapida-tag">Comida Rápida</span>Bonneles de pollo, salsa mostaza y miel</td><td><span class="rapida-tag">Comida Rápida</span>Taco con posta de cerdo al pastor (3 un.)</td><td class="especial-cell"><span class="especial-tag">★ ESPECIAL</span>Sopa azteca</td><td><span class="rapida-tag">Comida Rápida</span>Nachos de carne mechada</td><td><span class="rapida-tag">Comida Rápida</span>Hamburguesa artesanal de pollo con guacamole</td><td><span class="rapida-tag">Comida Rápida</span>Twister de pollo con aderezo ranch especial</td></tr>
         </tbody>
       </table>
     </div>
-    <div class="veg-legend"><span class="veg-badge">V</span> Opción Vegetariana &nbsp;·&nbsp; "-" indica que no aplica ese día</div>
+  <div class="especial-note">★ El <b>Plato Especial</b> solo aplica los <b>miércoles</b>. Esta semana: <b>Sopa azteca</b>.</div>
+  <div class="veg-legend"><span class="veg-badge">🍃</span> Opción Vegetariana</div>
   </div>
 </section>
 
@@ -497,6 +532,10 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
     document.getElementById('sec-' + id).classList.add('active');
     btn.classList.add('active');
     window.scrollTo({top:0, behavior:'smooth'});
+  }
+  function goToSection(id) {
+    var tab = document.querySelector('.nav-tab[onclick*="\'' + id + '\'"]');
+    showSection(id, tab);
   }
   function showDia(id, btn) {
     document.querySelectorAll('.dia-content').forEach(d => d.classList.remove('active'));
