@@ -52,6 +52,8 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 .nav-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
 .nav-tab-external { text-decoration:none; display:inline-flex; align-items:center; color: var(--navy) !important; }
 .nav-tab-external:hover { color: var(--orange) !important; }
+.nav-navidad { align-self:center; flex-shrink:0; display:inline-flex; align-items:center; margin:8px 14px 8px 0; padding:9px 18px; background:#D32F2F; color:#FFFFFF !important; border-radius:999px; font-family:'Nunito', sans-serif; font-size:14px; font-weight:800; letter-spacing:0.5px; text-decoration:none; white-space:nowrap; box-shadow:0 2px 6px rgba(211,47,47,.35); transition:background .2s, transform .2s; }
+.nav-navidad:hover { background:#B71C1C; transform:translateY(-1px); }
 
 .main { padding: 28px 24px 50px; max-width: 980px; margin: 0 auto; }
 .section { display: none; }
@@ -251,7 +253,7 @@ body { font-family: 'Nunito Sans', Arial, sans-serif; background: var(--bg); col
 <p>A tu gusto: como siempre o en combos y ahorrás</p>
 </div>
 </header>
-<nav class="nav-tabs"><button class="nav-tab" onclick="showSection('menudia', this)">📋 Menú del Día</button><button class="nav-tab active" onclick="showSection('desayuno', this)">☀️ Desayuno</button><button class="nav-tab" onclick="showSection('almuerzo', this)">🍽️ Almuerzo</button><button class="nav-tab" onclick="showSection('merienda', this)">🍪 Merienda</button><button class="nav-tab" onclick="showSection('semana', this)">📅 Menú Semana</button><button class="nav-tab" onclick="showSection('eventos', this)">🎉 Eventos</button><a class="nav-tab nav-tab-external" href="https://forms.cloud.microsoft/r/ahvwJ4S6QK" rel="noopener" target="_blank">📬 Buzón</a></nav>
+<nav class="nav-tabs"><a class="nav-navidad" href="https://cocinarte2026.github.io/cocinarte-navidad2026/" target="_blank" rel="noopener">🎄 NAVIDAD 2026</a><button class="nav-tab" onclick="showSection('menudia', this)">📋 Menú del Día</button><button class="nav-tab active" onclick="showSection('desayuno', this)">☀️ Desayuno</button><button class="nav-tab" onclick="showSection('almuerzo', this)">🍽️ Almuerzo</button><button class="nav-tab" onclick="showSection('merienda', this)">🍪 Merienda</button><button class="nav-tab" onclick="showSection('semana', this)">📅 Menú Semana</button><button class="nav-tab" onclick="showSection('eventos', this)">🎉 Eventos</button><a class="nav-tab nav-tab-external" href="https://forms.cloud.microsoft/r/ahvwJ4S6QK" rel="noopener" target="_blank">📬 Buzón</a></nav>
 <main class="main">
 <section class="section active" id="sec-desayuno">
 <div class="section-title">☀️ DESAYUNO — COMBOS <span class="section-subtitle">Precios con IVA</span></div>
